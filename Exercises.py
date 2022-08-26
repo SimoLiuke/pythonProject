@@ -1,21 +1,23 @@
 import math
 import sys
 # 2.6
-
+from random import randint
 # 3 numbers
-import random  # Seems like cheating, but ...
+tdc = ""    # Three-digit code
+for x in range(3):
+    tdc = tdc + str(randint(0, 9))
 
-fixed_digits = 9
-
-print(random.randrange(000, 999, fixed_digits))
+print(tdc)
 
 # 4 numbers
+fdc = ""    # Four-digit code
+for y in range(4):
+    fdc = fdc + str(randint(1, 6))
 
-fixed_digits = 6
-
-print(random.randrange(1111, 6666, fixed_digits))
+print(fdc)
 
 sys(exit(1))
+
 
 # 2.5 (non functional)
 
@@ -23,16 +25,12 @@ tal = float(input("Enter Talents: \n"))
 pou = float(input("Enter Pounds: \n"))
 lot = float(input("Enter Lots: \n"))
 
-pou2 = pou+(tal*20)
-lot2 = lot+(pou2*32)
-grm = lot2*13.3
-
-kg = (lot2*13.3)/1000
-kg2 = kg-1
-grm2 = (lot2*13.3)-(1000*kg2)
+kilo = float((8.512*tal)+(0.4256*pou)+(0.0133*lot))
+kilo2 = int(kilo)
+gram = float((kilo-kilo2)*1000)
 
 print("Weight in modern units:")
-print(f"{kg2:1.5f}"+" Kg", f"{grm2:1.5f}"+" grams")
+print(str(kilo2)+" kilograms & "+str(gram)+" grams.")
 
 # 2.4
 
