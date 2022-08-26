@@ -19,7 +19,7 @@ print(fdc)
 
 sys(exit(1))
 
-# 2.5 (non functional)
+# 2.5
 
 tal = float(input("Enter Talents: \n"))
 pou = float(input("Enter Pounds: \n"))
