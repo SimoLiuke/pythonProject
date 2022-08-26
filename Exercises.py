@@ -1,5 +1,6 @@
 import math
 import sys
+
 # 2.6
 from random import randint
 # 3 numbers
@@ -17,7 +18,6 @@ for y in range(4):
 print(fdc)
 
 sys(exit(1))
-
 
 # 2.5 (non functional)
 
@@ -49,17 +49,20 @@ print("The average of the numbers is: ")
 print(avg_1)
 
 # 2.3
+
 length = float(input('Please Enter the Length of a Rectangle: '))
 width = float(input('Please Enter the Width of a Rectangle: '))
 
 perimeter = 2 * (length + width)
+area = length * width
 
 print("Perimeter of a Rectangle using", length, "and", width, " = ", perimeter)
+print("Area of rectangle using", length, "and", width, "=", area)
 
 # 2.2
 
 r = float(input("Give a radius of a circle: "))
-area = math.pi *r*r
+area = math.pi * r * r
 print("The are of a circle with that radius is = %.2f" %area)
 
 # 2.1
