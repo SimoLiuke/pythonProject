@@ -1,6 +1,29 @@
 import math
 import sys
 
+# 3.3
+
+gender = input("Please enter your biological gender (male/female)\n")
+hglobin = float(input("Please enter hemoglobin value in g/L \n"))
+
+if gender == str("male") and hglobin in range(134, 167):
+    print("Your hemoglobin value is normal")
+elif gender == str("female") and hglobin in range(117, 155):
+    print("Your hemoglobin value is normal")
+elif gender == str("male") and hglobin < 134:
+    print("Your hemoglobin value is low")
+elif gender == str("male") and hglobin > 167:
+    print("Your hemoglobin value is high")
+elif gender == str("female") and hglobin < 117:
+    print("Your hemoglobin value is low")
+elif gender == str("female") and hglobin < 155:
+    print("Your hemoglobin value is high")
+else:
+    print("invalid input")
+
+sys(exit(1))
+
+# 3.2
 cabin = str(input("Enter cabin class: \n"))
 
 if cabin == str("LUX"):
@@ -13,8 +36,6 @@ elif cabin == str("LUX"):
     print("C: Windowless cabin below the car deck")
 else:
     print("Invalid cabin class")
-
-sys(exit(1))
 
 # 3.1
 
