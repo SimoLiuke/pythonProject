@@ -1,6 +1,21 @@
 import math
 import sys
 
+cabin = str(input("Enter cabin class: \n"))
+
+if cabin == str("LUX"):
+    print("LUX: Upper-deck cabin with a balcony")
+elif cabin == str("A"):
+    print("A: Above the car deck, equipped with a window")
+elif cabin == str("LUX"):
+    print("B: Windowless cabin above the car deck")
+elif cabin == str("LUX"):
+    print("C: Windowless cabin below the car deck")
+else:
+    print("Invalid cabin class")
+
+sys(exit(1))
+
 # 3.1
 
 fish_length = float(input("Give Zander length: \n"))
@@ -9,8 +24,6 @@ if fish_length >= float(42):
     print("The Zander is long enough")
 else:
     print("The Zander is "+str(42-fish_length)+" cm too short, Release it to the lake.")
-
-sys(exit(1))
 
 # 2.6
 from random import randint
