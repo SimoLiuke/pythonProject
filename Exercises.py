@@ -1,6 +1,17 @@
 import math
 import sys
 
+# 3.1
+
+fish_length = float(input("Give Zander length: \n"))
+
+if fish_length >= float(42):
+    print("The Zander is long enough")
+else:
+    print("The Zander is "+str(42-fish_length)+" cm too short, Release it to the lake.")
+
+sys(exit(1))
+
 # 2.6
 from random import randint
 # 3 numbers
@@ -16,8 +27,6 @@ for y in range(4):
     fdc = fdc + str(randint(1, 6))
 
 print(fdc)
-
-sys(exit(1))
 
 # 2.5
 
