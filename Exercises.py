@@ -1,6 +1,8 @@
 import math
 import sys
 
+sys.exit(0)
+
 # 4.5
 
 Username = "simo"
@@ -19,7 +21,7 @@ while tries < 5:
         print("Access denied")
         print(5-tries, "trie(s) remaining")
 
-sys.exit(0)
+
 
 # 4.4
 from random import randint
@@ -28,7 +30,7 @@ guess = 0
 
 while n != guess:
     print(n)
-    input("Guess a number between 1 and 10: ")
+    guess = int(input("Guess a number between 1 and 10: "))
     if guess < n != guess:
         print("Too low")
     elif guess > n != guess:
