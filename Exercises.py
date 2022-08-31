@@ -1,11 +1,40 @@
 import math
 import sys
 
+# 4.3
+
+
+my_list = []
+
+while True:
+    user_input = input("Enter numbers, when done input an empty field: ")
+
+    if user_input == "":
+        break
+    my_list.append(user_input)
+
+print("Maximum element in the list is: ", max(my_list), "\n Minimum element in the list is: 1", min(my_list))
+print(my_list)
+
+sys.exit(0)
+
+# 4.2
+
+inches = 1
+
+while float(inches > 0):
+    inches = float(input("Give length in inches: \n"))
+    if inches > 0:
+        cm = inches * 2.54
+        print("Length is equal to: " + str(cm) + " cm")
+else:
+    print("Input was negative")
+
+# 4.1
+
 for value in range(1, 1000):
     if value % 3 == 0:
         print(value)
-
-sys.exit(0)
 
 # 3.4 (unfinished)
 # input year from user
@@ -45,9 +74,9 @@ if cabin == str("LUX"):
     print("LUX: Upper-deck cabin with a balcony")
 elif cabin == str("A"):
     print("A: Above the car deck, equipped with a window")
-elif cabin == str("LUX"):
+elif cabin == str("B"):
     print("B: Windowless cabin above the car deck")
-elif cabin == str("LUX"):
+elif cabin == str("C"):
     print("C: Windowless cabin below the car deck")
 else:
     print("Invalid cabin class")
