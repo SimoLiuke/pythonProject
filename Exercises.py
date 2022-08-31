@@ -1,11 +1,27 @@
 import math
 import sys
 
-# 3.3
+for value in range(1, 1000):
+    if value % 3 == 0:
+        print(value)
 
+sys.exit(0)
+
+# 3.4 (unfinished)
+# input year from user
+year = float(input("Input a year: "))
+
+# test if year is leap year, by testing divisibility
+if year == year % 4 == 0:
+    print("yes")
+else:
+    print("no")
+
+# 3.3
+# input from user
 gender = input("Please enter your biological gender (male/female)\n")
 hglobin = float(input("Please enter hemoglobin value in g/L \n"))
-
+# Check input against predetermined values
 if gender == str("male") and hglobin in range(134, 167):
     print("Your hemoglobin value is normal")
 elif gender == str("female") and hglobin in range(117, 155):
@@ -18,10 +34,9 @@ elif gender == str("female") and hglobin < 117:
     print("Your hemoglobin value is low")
 elif gender == str("female") and hglobin < 155:
     print("Your hemoglobin value is high")
+# if input is not valid
 else:
     print("invalid input")
-
-sys(exit(1))
 
 # 3.2
 cabin = str(input("Enter cabin class: \n"))
@@ -47,6 +62,7 @@ else:
     print("The Zander is "+str(42-fish_length)+" cm too short, Release it to the lake.")
 
 # 2.6
+
 from random import randint
 # 3 numbers
 tdc = ""    # Three-digit code
