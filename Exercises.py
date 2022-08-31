@@ -3,19 +3,21 @@ import sys
 
 # 4.5
 
-Username = "1"
+Username = "simo"
 Password = "1234"
+
 tries = 0
 
 while tries < 5:
     name = str(input("Enter Username: \n"))
     pw = input("Enter Password: \n")
-    if Username == str("simo") and Password == str("1"):
+    if name == str(Username) and pw == str(Password):
         print("Welcome")
+        tries = 5
     else:
         tries = tries + 1
         print("Access denied")
-        print(tries)
+        print(5-tries, "trie(s) remaining")
 
 sys.exit(0)
 
