@@ -1,8 +1,42 @@
 import math
 import sys
 
-# 4.3
+# 4.5
 
+Username = "1"
+Password = "1234"
+tries = 0
+
+while tries < 5:
+    name = str(input("Enter Username: \n"))
+    pw = input("Enter Password: \n")
+    if Username == str("simo") and Password == str("1"):
+        print("Welcome")
+    else:
+        tries = tries + 1
+        print("Access denied")
+        print(tries)
+
+sys.exit(0)
+
+# 4.4
+from random import randint
+n = randint(1, 10)
+guess = 0
+
+while n != guess:
+    print(n)
+    input("Guess a number between 1 and 10: ")
+    if guess < n != guess:
+        print("Too low")
+    elif guess > n != guess:
+        print("Too High")
+    elif n == guess:
+        print("Correct")
+
+
+
+# 4.3
 
 my_list = []
 
@@ -13,10 +47,8 @@ while True:
         break
     my_list.append(user_input)
 
-print("Maximum element in the list is: ", max(my_list), "\n Minimum element in the list is: 1", min(my_list))
+print("Maximum element in the list is: ", max(my_list), "\n Minimum element in the list is: ", min(my_list))
 print(my_list)
-
-sys.exit(0)
 
 # 4.2
 
