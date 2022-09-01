@@ -1,6 +1,8 @@
 import math
 import sys
 
+
+
 sys.exit(0)
 
 # 4.5
@@ -77,10 +79,12 @@ for value in range(1, 1000):
 year = float(input("Input a year: "))
 
 # test if year is leap year, by testing divisibility
-if year == year % 4 == 0:
-    print("yes")
+if year % 4 == 0:
+    print("year is a leap year")
+elif year % 100 == 0 and year % 400 == 0:
+    print("Year is a leap year")
 else:
-    print("no")
+    print("Year isn't a leap year")
 
 # 3.3
 # input from user
