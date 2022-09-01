@@ -24,14 +24,13 @@ while tries < 5:
         print(5-tries, "trie(s) remaining")
 
 
-
 # 4.4
+
 from random import randint
 n = randint(1, 10)
 guess = 0
 
 while n != guess:
-    print(n)
     guess = int(input("Guess a number between 1 and 10: "))
     if guess < n != guess:
         print("Too low")
@@ -39,7 +38,6 @@ while n != guess:
         print("Too High")
     elif n == guess:
         print("Correct")
-
 
 
 # 4.3
