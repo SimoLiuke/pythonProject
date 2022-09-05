@@ -1,6 +1,22 @@
 import math
 import sys
 
+num = []
+
+while True:
+    user_input = input("Enter numbers, when done input an empty field: ")
+
+    if user_input == "":
+        break
+    num.append(user_input)
+
+num.sort(reverse=True)
+
+print(""), print(num[0]), print(num[1]), print(num[2]), print(num[3]), print(num[4])
+
+
+sys.exit(0)
+
 # 5.1
 
 from random import randint
@@ -22,8 +38,6 @@ for n in dice:
 
 print("")
 print("The sum of the rolls is: ", sum(dice))
-
-sys.exit(0)
 
 # 4.6
 
