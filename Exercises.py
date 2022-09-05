@@ -1,6 +1,16 @@
 import math
 import sys
 
+# 5.4, easy solution, but not with the structures that the exersice asked for, I was unable to make them work
+
+cities = []
+while len(cities) != 5:
+    city = input("Enter a name of a city: \n")
+    cities.append(city)
+
+print(""), print(cities[0]), print(cities[1]), print(cities[2]), print(cities[3]), print(cities[4]),
+sys.exit(0)
+
 # 5.3
 
 num = int(input("Give a number between 0 and 9: \n"))
@@ -15,8 +25,6 @@ if num > 1:
         print(num, "is a prime number")
 else:
     print(num, "is not a prime number")
-
-sys.exit(0)
 
 # 5.2
 
