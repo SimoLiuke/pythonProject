@@ -1,6 +1,25 @@
 import math
 import sys
 
+# 5.3
+
+num = int(input("Give a number between 0 and 9: \n"))
+
+if num > 1:
+
+    for i in range(2, int(num / 2) + 1):
+        if (num % i) == 0:
+            print(num, "is not a prime number")
+            break
+    else:
+        print(num, "is a prime number")
+else:
+    print(num, "is not a prime number")
+
+sys.exit(0)
+
+# 5.2
+
 num = []
 
 while True:
@@ -14,16 +33,12 @@ num.sort(reverse=True)
 
 print(""), print(num[0]), print(num[1]), print(num[2]), print(num[3]), print(num[4])
 
-
-sys.exit(0)
-
 # 5.1
 
 from random import randint
 
 dice = []
 rolls = int(input("How many dice do you want to roll: \n"))
-
 
 while rolls == rolls and rolls != 0:
     rnum = randint(1, 6)
@@ -57,12 +72,12 @@ while tries < 5:
     else:
         tries = tries + 1
         print("Access denied")
-        print(5-tries, "trie(s) remaining")
-
+        print(5 - tries, "trie(s) remaining")
 
 # 4.4
 
 from random import randint
+
 n = randint(1, 10)
 guess = 0
 
@@ -74,7 +89,6 @@ while n != guess:
         print("Too High")
     elif n == guess:
         print("Correct")
-
 
 # 4.3
 
@@ -162,20 +176,21 @@ fish_length = float(input("Give Zander length: \n"))
 if fish_length >= float(42):
     print("The Zander is long enough")
 else:
-    print("The Zander is "+str(42-fish_length)+" cm too short, Release it to the lake.")
+    print("The Zander is " + str(42 - fish_length) + " cm too short, Release it to the lake.")
 
 # 2.6
 
 from random import randint
+
 # 3 numbers
-tdc = ""    # Three-digit code
+tdc = ""  # Three-digit code
 for x in range(3):
     tdc = tdc + str(randint(0, 9))
 
 print(tdc)
 
 # 4 numbers
-fdc = ""    # Four-digit code
+fdc = ""  # Four-digit code
 for y in range(4):
     fdc = fdc + str(randint(1, 6))
 
@@ -187,12 +202,12 @@ tal = float(input("Enter Talents: \n"))
 pou = float(input("Enter Pounds: \n"))
 lot = float(input("Enter Lots: \n"))
 
-kilo = float((8.512*tal)+(0.4256*pou)+(0.0133*lot))
+kilo = float((8.512 * tal) + (0.4256 * pou) + (0.0133 * lot))
 kilo2 = int(kilo)
-gram = float((kilo-kilo2)*1000)
+gram = float((kilo - kilo2) * 1000)
 
 print("Weight in modern units:")
-print(str(kilo2)+" kilograms & "+str(gram)+" grams.")
+print(str(kilo2) + " kilograms & " + str(gram) + " grams.")
 
 # 2.4
 
@@ -201,8 +216,8 @@ num2 = (int(input("Give any number between 0 - 9:\n")))
 num3 = (int(input("Give any number between 0 - 9:\n")))
 
 sum_1 = num1 + num2 + num3
-prod_1 = num1*num2*num3
-avg_1 = (num1+num2+num3)/3
+prod_1 = num1 * num2 * num3
+avg_1 = (num1 + num2 + num3) / 3
 print("The sum of the numbers is: ")
 print(sum_1)
 print("The product of the numbers is: ")
@@ -225,7 +240,7 @@ print("Area of rectangle using", length, "and", width, "=", area)
 
 r = float(input("Give a radius of a circle: "))
 area = math.pi * r * r
-print("The are of a circle with that radius is = %.2f" %area)
+print("The are of a circle with that radius is = %.2f" % area)
 
 # 2.1
 user = input("Enter your name:\n ")
