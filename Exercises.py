@@ -1,9 +1,31 @@
 import math
 import sys
 
+# 5.1
 
+from random import randint
+
+dice = []
+rolls = int(input("How many dice do you want to roll: \n"))
+
+
+while rolls == rolls and rolls != 0:
+    rnum = randint(1, 6)
+    dice.append(rnum)
+    rolls = rolls - 1
+    rnum = 0
+
+print("The rolled values are: ")
+
+for n in dice:
+    print(n)
+
+print("")
+print("The sum of the rolls is: ", sum(dice))
 
 sys.exit(0)
+
+# 4.6
 
 # 4.5
 
