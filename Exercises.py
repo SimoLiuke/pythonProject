@@ -1,6 +1,60 @@
 import math
 import sys
 
+# 6.4
+
+sys.exit(0)
+
+# 6.3
+
+gallon = float(input("Enter amount of gasoline in Gallons: \n"))
+
+
+def convert():
+    liter = gallon * 3.785411784
+    print("The amount of gasoline in Liters is ", liter, " L")
+    return gallon
+
+
+liter = convert()
+
+while gallon > 0:
+    convert()
+    print("")
+    gallon = float(input("Enter amount of gasoline in Gallons: \n"))
+
+# 6.2
+import random
+from random import randint
+
+
+def roll2(sides):   # strange bug, won't give max value for range without +1, works fine with it
+    dice = random.randrange(1, sides + 1)
+    print(dice)
+    return dice
+
+
+sides = float(input("How many sided Die to roll?: \n"))
+print("")
+dice = roll2(sides)
+
+while dice != sides:
+    dice = roll2(sides)
+
+# 6.1
+
+
+def roll():
+    dice = randint(1, 6)
+    print(dice)
+    return dice
+
+
+dice = roll()
+
+while dice != 6:
+    dice = roll()
+
 # 5.4, easy solution, but not with the structures that the exersice asked for, I was unable to make them work
 
 cities = []
@@ -9,7 +63,6 @@ while len(cities) != 5:
     cities.append(city)
 
 print(""), print(cities[0]), print(cities[1]), print(cities[2]), print(cities[3]), print(cities[4]),
-sys.exit(0)
 
 # 5.3
 
@@ -130,7 +183,7 @@ for value in range(1, 1000):
     if value % 3 == 0:
         print(value)
 
-# 3.4 (unfinished)
+# 3.4
 # input year from user
 year = float(input("Input a year: "))
 
@@ -143,9 +196,11 @@ else:
     print("Year isn't a leap year")
 
 # 3.3
+
 # input from user
 gender = input("Please enter your biological gender (male/female)\n")
 hglobin = float(input("Please enter hemoglobin value in g/L \n"))
+
 # Check input against predetermined values
 if gender == str("male") and hglobin in range(134, 167):
     print("Your hemoglobin value is normal")
@@ -159,11 +214,13 @@ elif gender == str("female") and hglobin < 117:
     print("Your hemoglobin value is low")
 elif gender == str("female") and hglobin < 155:
     print("Your hemoglobin value is high")
+
 # if input is not valid
 else:
     print("invalid input")
 
 # 3.2
+
 cabin = str(input("Enter cabin class: \n"))
 
 if cabin == str("LUX"):
