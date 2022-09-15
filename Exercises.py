@@ -1,14 +1,26 @@
 import math
-import sys
 import _mysql_connector
+import sys
 
+# 8.1
+
+
+def fetch(name, location):
+    1
+
+
+code = input("Enter IACO code:")
+print(name, location)
 
 sys.exit(0)
+
 # 7.1
 
 seasons = ("Spring", "Summer", "Autumn", "winter")
 
+
 # 6.6
+
 
 def calculate(diameter, price):
     r = diameter / 2
