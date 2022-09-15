@@ -1,5 +1,13 @@
 import math
 import sys
+import _mysql_connector     # 8
+
+
+
+sys.exit(0)
+# 7.1
+
+seasons = ("Spring", "Summer", "Autumn", "winter")
 
 # 6.6
 
@@ -21,11 +29,11 @@ def calculate(diameter, price):
 value1 = calculate(diameter, price)
 value2 = calculate(diameter2, price2)
 
-# sorting value, larger value is better, as it's area given per €
+# Sorting value, larger value is better, as it's area given per €
 pizzas = [value1, value2]
 pizzas.sort()
 
-# Formatting answer
+# Formatting results
 if value1 > value2:
     pizza = "first"
 else:
@@ -33,10 +41,9 @@ else:
 
 print("The", pizza, "pizza is better value for money, giving %.2f" % pizzas[1], "cm^2 per €")
 
-sys.exit(0)
-
 # 6.5
 
+# Example list
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
@@ -49,13 +56,15 @@ def remove_even(numbers) :
 
 
 remove_even(numbers)
-
 new_list = remove_even(numbers)
+
+# Printing results
 print(numbers)
 print(new_list)
 
 # 6.4
 
+# Example list
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
@@ -68,12 +77,14 @@ def remove_even(numbers) :
 
 
 remove_even(numbers)
-
 new_list = remove_even(numbers)
+
+# Print results
 print(new_list)
 
 # 6.3
 
+# User input
 gallon = float(input("Enter amount of gasoline in Gallons: \n"))
 
 
@@ -85,6 +96,7 @@ def convert():
 
 liter = convert()
 
+# Loop with results and checking for non 0 input
 while gallon > 0:
     convert()
     print("")
@@ -95,7 +107,7 @@ import random
 from random import randint
 
 
-def roll2(sides):   # strange bug, won't give max value for range without +1, works fine with it
+def roll2(sides):   # Strange bug, won't give max value for range without +1, works fine with it
     dice = random.randrange(1, sides + 1)
     print(dice)
     return dice
