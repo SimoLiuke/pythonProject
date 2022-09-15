@@ -1,6 +1,37 @@
 import math
 import sys
 
+# 6.6
+
+# User Input
+diameter = float(input("Give Diameter of the first pizza: \n"))
+price = float(input("Give the price of the first  pizza: \n"))
+diameter2 = float(input("Give Diameter of the second pizza: \n"))
+price2 = float(input("Give the price of the second pizza: \n"))
+
+
+def calculate(diameter, price):
+    r = diameter / 2
+    area = math.pi * r * r
+    value = area / price
+    return value
+
+
+# Calculating values
+value1 = calculate(diameter, price)
+value2 = calculate(diameter2, price2)
+
+# sorting value, larger value is better
+pizzas = [value1, value2]
+pizzas.sort()
+
+# Formatting answer
+if value1 > value2:
+    pizza = "first"
+else:
+    pizza = "second"
+
+print("The", pizza, "pizza is better value for money, giving %.2f" % pizzas[1], "cm^2 per €")
 
 sys.exit(0)
 
