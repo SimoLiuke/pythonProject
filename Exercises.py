@@ -1,9 +1,26 @@
 import math
 import sys
 
-# 6.4
 
 sys.exit(0)
+
+# 6.4
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+def remove_even(numbers) :
+    new_list = []
+    for i in numbers :
+        if i % 2 != 0 :
+            new_list.append(i)
+    return new_list
+
+
+remove_even(numbers)
+
+new_list = remove_even(numbers)
+print(new_list)
 
 # 6.3
 
