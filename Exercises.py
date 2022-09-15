@@ -21,7 +21,7 @@ def calculate(diameter, price):
 value1 = calculate(diameter, price)
 value2 = calculate(diameter2, price2)
 
-# sorting value, larger value is better
+# sorting value, larger value is better, as it's area given per €
 pizzas = [value1, value2]
 pizzas.sort()
 
