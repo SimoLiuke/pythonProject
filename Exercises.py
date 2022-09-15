@@ -1,6 +1,6 @@
 import math
 import sys
-import _mysql_connector     # 8
+import _mysql_connector
 
 
 
@@ -47,7 +47,7 @@ print("The", pizza, "pizza is better value for money, giving %.2f" % pizzas[1], 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
-def remove_even(numbers) :
+def remove_even(numbers):
     new_list = []
     for i in numbers :
         if i % 2 != 0 :
