@@ -3,7 +3,6 @@ import sys
 import _mysql_connector
 
 
-
 sys.exit(0)
 # 7.1
 
@@ -11,18 +10,18 @@ seasons = ("Spring", "Summer", "Autumn", "winter")
 
 # 6.6
 
+def calculate(diameter, price):
+    r = diameter / 2
+    area = math.pi * (r * r)
+    value = area / price
+    return value
+
+
 # User Input
 diameter = float(input("Give Diameter of the first pizza: \n"))
 price = float(input("Give the price of the first  pizza: \n"))
 diameter2 = float(input("Give Diameter of the second pizza: \n"))
 price2 = float(input("Give the price of the second pizza: \n"))
-
-
-def calculate(diameter, price):
-    r = diameter / 2
-    area = math.pi * r * r
-    value = area / price
-    return value
 
 
 # Calculating values
@@ -49,8 +48,8 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 def remove_even(numbers):
     new_list = []
-    for i in numbers :
-        if i % 2 != 0 :
+    for i in numbers:
+        if i % 2 != 0:
             new_list.append(i)
     return new_list
 
@@ -362,12 +361,11 @@ num3 = (int(input("Give any number between 0 - 9:\n")))
 sum_1 = num1 + num2 + num3
 prod_1 = num1 * num2 * num3
 avg_1 = (num1 + num2 + num3) / 3
-print("The sum of the numbers is: ")
-print(sum_1)
-print("The product of the numbers is: ")
-print(prod_1)
-print("The average of the numbers is: ")
-print(avg_1)
+
+print("The sum of the numbers is: ", sum_1)
+print("The product of the numbers is: ", prod_1)
+print("The average of the numbers is: ", avg_1)
+
 
 # 2.3
 
