@@ -2,9 +2,27 @@ import math
 import _mysql_connector
 import sys
 
+# 7.2
+
+names = set()
+name = 0
+while name != "":
+    name = input("Enter a Name: \n")
+
+    if name == "":
+        break
+    if name in names:
+        print("Existing Name"), print("")
+    else:
+        print("New Name"), print("")
+        names.add(str(name))
+
+for name in names:
+    print(name)
+
+sys.exit(0)
+
 # 8.1
-
-
 def fetch(name, location):
     1
 
@@ -12,12 +30,22 @@ def fetch(name, location):
 code = input("Enter IACO code:")
 print(name, location)
 
-sys.exit(0)
+# 7.1, not exactly what was instructed, but this is the solution I could make work
+month = input("Input the number of the month: \n")
 
-# 7.1
+if month in ('12', '1', '2'):
+    season = 'winter'
+elif month in ('3', '4', '5'):
+    season = 'spring'
+elif month in ('6', '7', '8'):
+    season = 'summer'
+elif month in ('9', '10', '11'):
+    season = 'autumn'
+else:
+    print("Invalid input")
+    sys.exit(1)
 
-seasons = ("Spring", "Summer", "Autumn", "winter")
-
+print("Season is", season)
 
 # 6.6
 
