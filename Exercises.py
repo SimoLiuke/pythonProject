@@ -2,6 +2,24 @@ import math
 import _mysql_connector
 import sys
 
+
+# 9.1
+
+class Car:
+
+    def __init__(self, registration, max_speed):
+        self.registration = registration
+        self.max_speed = max_speed
+
+
+BMW = Car(registration="ABC-123", max_speed="142 km/h")
+BMW.current_speed = "80 km/h"
+BMW.travelled_distance = "75000 km"
+
+print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed}, it's currently travelling at {BMW.current_speed}, and it has travelled {BMW.travelled_distance}.")
+
+sys.exit(0)
+
 # 7.2
 
 names = set()
@@ -20,7 +38,6 @@ while name != "":
 for name in names:
     print(name)
 
-sys.exit(0)
 
 # 8.1
 def fetch(name, location):
