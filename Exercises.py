@@ -2,7 +2,15 @@ import math
 import _mysql_connector
 import sys
 
-# 9.2
+# 10.1
+
+class Elevator:
+
+    def __init__(self, top_floor, bottom_floor):
+        self.top_floor = top_floor
+        self.bottom_floor = bottom_floor
+
+# 9.2, weird error in acceleration part cant seem to be able to be solved
 
 
 class Car:
@@ -24,8 +32,11 @@ class Car:
 BMW = Car("ABC-123", "142 km/h", 0)
 BMW.travelled_distance = "0 km"
 BMW.accelerate(30)
+print(BMW.speed)
 BMW.accelerate(70)
+print(BMW.speed)
 BMW.accelerate(50)
+print(BMW.speed)
 BMW.accelerate(-200)
 print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed}, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance}.")
 
