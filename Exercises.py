@@ -4,6 +4,51 @@ import sys
 
 # 10.1
 
+# 9.3
+
+
+class Car:
+
+    def __init__(self, registration, max_speed, speed, travelled_distance):
+        self.registration = registration
+        self.max_speed = max_speed
+        self.speed = speed
+        self.travelled_distance = travelled_distance
+
+    def accelerate(self, speed_change):
+        if self.speed == 0 and speed_change < 0:
+            self.speed = self.speed
+        elif speed_change > 0 and speed_change + self.speed <= self.max_speed:
+            self.speed = self.speed + speed_change
+        elif speed_change < 0 and self.speed + speed_change > 0:
+            self.speed = self.speed - speed_change
+        elif speed_change < 0 and self.speed + speed_change < 0:
+            self.speed = 0
+        else:
+            self.speed = self.max_speed
+
+    def drive(self, hours):
+        if hours < 0:
+            self.travelled_distance = self.travelled_distance + self.speed / hours
+        else:
+            self.travelled_distance = self.travelled_distance + self.speed * hours
+
+
+BMW = Car("ABC-123", 142, 0, 0)
+BMW.accelerate(30)
+BMW.drive(1.5)
+print(BMW.speed, BMW.travelled_distance)
+BMW.accelerate(70)
+BMW.drive(0.1)
+print(BMW.speed, BMW.travelled_distance)
+BMW.accelerate(50)
+BMW.drive(2.5)
+print(BMW.speed, BMW.travelled_distance)
+BMW.accelerate(-200)
+print(BMW.speed, BMW.travelled_distance)
+print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance} km.")
+
+sys.exit(0)
 
 # 9.2
 
@@ -28,7 +73,7 @@ class Car:
             self.speed = self.max_speed
 
 
-BMW = Car("ABC-123", 142 , 0)
+BMW = Car("ABC-123", 142, 0)
 BMW.travelled_distance = "0 km"
 BMW.accelerate(30)
 print(BMW.speed)
@@ -40,7 +85,7 @@ BMW.accelerate(-200)
 print(BMW.speed)
 print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance}.")
 
-sys.exit(0)
+
 
 # 9.1
 
