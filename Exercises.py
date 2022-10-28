@@ -4,13 +4,8 @@ import sys
 
 # 10.1
 
-class Elevator:
 
-    def __init__(self, top_floor, bottom_floor):
-        self.top_floor = top_floor
-        self.bottom_floor = bottom_floor
-
-# 9.2, weird error in acceleration part cant seem to be able to be solved
+# 9.2
 
 
 class Car:
@@ -21,15 +16,19 @@ class Car:
         self.speed = speed
 
     def accelerate(self, speed_change):
-        if speed_change < 0 and self.speed != 0:
-            self.speed - speed_change
-        elif speed_change + self.speed <= 142:
-            self.speed + speed_change
+        if self.speed == 0 and speed_change < 0:
+            self.speed = self.speed
+        elif speed_change > 0 and speed_change + self.speed <= self.max_speed:
+            self.speed = self.speed + speed_change
+        elif speed_change < 0 and self.speed + speed_change > 0:
+            self.speed = self.speed - speed_change
+        elif speed_change < 0 and self.speed + speed_change < 0:
+            self.speed = 0
         else:
-            self.speed = 142
+            self.speed = self.max_speed
 
 
-BMW = Car("ABC-123", "142 km/h", 0)
+BMW = Car("ABC-123", 142 , 0)
 BMW.travelled_distance = "0 km"
 BMW.accelerate(30)
 print(BMW.speed)
@@ -38,7 +37,8 @@ print(BMW.speed)
 BMW.accelerate(50)
 print(BMW.speed)
 BMW.accelerate(-200)
-print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed}, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance}.")
+print(BMW.speed)
+print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance}.")
 
 sys.exit(0)
 
@@ -56,7 +56,7 @@ BMW = Car(registration="ABC-123", max_speed="142 km/h")
 BMW.current_speed = "80 km/h"
 BMW.travelled_distance = "75000 km"
 
-print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed}, it's currently travelling at {BMW.current_speed}, and it has travelled {BMW.travelled_distance}.")
+print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.current_speed}, and it has travelled {BMW.travelled_distance}.")
 
 # 7.2
 
