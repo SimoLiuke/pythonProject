@@ -1,8 +1,59 @@
 import math
 import _mysql_connector
+import random
 import sys
 
 # 10.1
+
+
+# 9.4
+
+
+class Car:
+
+    def __init__(self, registration, max_speed, speed, travelled_distance):
+        self.registration = registration
+        self.max_speed = max_speed
+        self.speed = speed
+        self.travelled_distance = travelled_distance
+
+    def accelerate(self, speed_change):
+        if self.speed == 0 and speed_change < 0:
+            self.speed = self.speed
+        elif speed_change > 0 and speed_change + self.speed <= self.max_speed:
+            self.speed = self.speed + speed_change
+        elif speed_change < 0 and self.speed + speed_change > 0:
+            self.speed = self.speed - speed_change
+        elif speed_change < 0 and self.speed + speed_change < 0:
+            self.speed = 0
+        else:
+            self.speed = self.max_speed
+
+    def drive(self, hours):
+        if hours > 0:
+            self.travelled_distance = self.travelled_distance + self.speed * hours
+
+
+cars = []
+register = 1
+while len(cars) < 10:
+    car = Car("ABC-" + str(register), random.randrange(100, 200), 0, 0)
+    cars.append(car)
+    register = register + 1
+
+distance = []
+
+while not max(distance) >= 10000:
+    for car in cars:
+
+        car.accelerate(random.randrange(-10, 15))
+        car.drive(1)
+        distance.append(car.travelled_distance)
+        print(max(distance))
+
+
+print(vars(car))
+sys.exit(0)
 
 # 9.3
 
@@ -48,7 +99,6 @@ BMW.accelerate(-200)
 print(BMW.speed, BMW.travelled_distance)
 print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance} km.")
 
-sys.exit(0)
 
 # 9.2
 
