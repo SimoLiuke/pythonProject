@@ -3,7 +3,44 @@ import _mysql_connector
 import random
 import sys
 
+# 10.2
+
+
 # 10.1
+
+
+class Elevator:
+
+    def __init__(self, bottom_floor, top_floor, current_floor):
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+        self.current_floor = current_floor
+
+    def floor_up(self):
+        if self.current_floor != self.top_floor:
+            self.current_floor = self.current_floor + 1
+
+    def floor_down(self):
+        if self.current_floor != self.bottom_floor:
+            self.current_floor = self.current_floor - 1
+
+    def go_to_floor(self, floor_change):
+        if self.current_floor < floor_change:
+            while self.current_floor != floor_change:
+                Elevator.floor_up(h)
+        elif self.current_floor > floor_change:
+            while self.current_floor != floor_change:
+                Elevator.floor_down(h)
+
+
+h = Elevator(0, 10, 0)
+print(vars(h))
+h.go_to_floor(10)
+print(vars(h))
+h.go_to_floor(0)
+print(vars(h))
+
+sys.exit(0)
 
 
 # 9.4
@@ -18,14 +55,13 @@ class Car:
         self.travelled_distance = travelled_distance
 
     def accelerate(self, speed_change):
-        if self.speed == 0 and speed_change < 0:
-            self.speed = self.speed
-        elif speed_change > 0 and speed_change + self.speed <= self.max_speed:
+        if self.speed + speed_change >= 0:
             self.speed = self.speed + speed_change
-        elif speed_change < 0 and self.speed + speed_change > 0:
-            self.speed = self.speed - speed_change
-        elif speed_change < 0 and self.speed + speed_change < 0:
+        else:
             self.speed = 0
+
+        if self.speed + speed_change <= self.max_speed:
+            self.speed = self.speed + speed_change
         else:
             self.speed = self.max_speed
 
@@ -34,26 +70,35 @@ class Car:
             self.travelled_distance = self.travelled_distance + self.speed * hours
 
 
+max_distance = 10000
+finished = False
+
 cars = []
 register = 1
-while len(cars) < 10:
-    car = Car("ABC-" + str(register), random.randrange(100, 200), 0, 0)
+
+for i in range(10):
+    car = Car("ABC-" + str(i), random.randrange(100, 200), 0, 0)
     cars.append(car)
-    register = register + 1
 
 distance = []
+loops = 0       # for testing
 
-while not max(distance) >= 10000:
+while not finished:
     for car in cars:
-
         car.accelerate(random.randrange(-10, 15))
         car.drive(1)
-        distance.append(car.travelled_distance)
-        print(max(distance))
+        print("Hours Driven", loops)    # for testing
+
+        if car.travelled_distance >= max_distance:
+            finished = True
+            print("")
+        else:
+            loops = loops + 1   # for testing
+
+for car in cars:
+    print(vars(car))
 
 
-print(vars(car))
-sys.exit(0)
 
 # 9.3
 
@@ -123,18 +168,17 @@ class Car:
             self.speed = self.max_speed
 
 
-BMW = Car("ABC-123", 142, 0)
-BMW.travelled_distance = "0 km"
-BMW.accelerate(30)
-print(BMW.speed)
-BMW.accelerate(70)
-print(BMW.speed)
-BMW.accelerate(50)
-print(BMW.speed)
-BMW.accelerate(-200)
-print(BMW.speed)
-print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance}.")
-
+car = Car("ABC-123", 142, 0)
+car.travelled_distance = "0 km"
+car.accelerate(30)
+print(car.speed)
+car.accelerate(70)
+print(car.speed)
+car.accelerate(50)
+print(car.speed)
+car.accelerate(-200)
+print(car.speed)
+print(f"The car's registration is {car.registration}, it's max speed is {car.max_speed} km/h, it's currently travelling at {car.speed} km/h, and it has travelled {car.travelled_distance}.")
 
 
 # 9.1
@@ -147,11 +191,11 @@ class Car:
         self.max_speed = max_speed
 
 
-BMW = Car(registration="ABC-123", max_speed="142 km/h")
-BMW.current_speed = "80 km/h"
-BMW.travelled_distance = "75000 km"
+car = Car(registration="ABC-123", max_speed="142 km/h")
+car.current_speed = "80 km/h"
+car.travelled_distance = "0 km"
 
-print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.current_speed}, and it has travelled {BMW.travelled_distance}.")
+print(f"The car's registration is {car.registration}, it's max speed is {car.max_speed} km/h, it's currently travelling at {car.current_speed}, and it has travelled {car.travelled_distance}.")
 
 # 7.2
 
