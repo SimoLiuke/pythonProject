@@ -6,6 +6,46 @@ import sys
 # 10.2
 
 
+class Elevator:
+
+    def __init__(self, bottom_floor, top_floor, current_floor):
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+        self.current_floor = current_floor
+
+    def floor_up(self):
+        if self.current_floor != self.top_floor:
+            self.current_floor = self.current_floor + 1
+
+    def floor_down(self):
+        if self.current_floor != self.bottom_floor:
+            self.current_floor = self.current_floor - 1
+
+    def go_to_floor(self, floor_change):
+        if self.current_floor < floor_change:
+            while self.current_floor != floor_change:
+                Elevator.floor_up(h)
+        elif self.current_floor > floor_change:
+            while self.current_floor != floor_change:
+                Elevator.floor_down(h)
+
+
+class Building:
+
+    def __init__(self, bottom_floor, top_floor, number_of_elevators):
+        h.top_floor = top_floor
+        h.bottom_floor = bottom_floor
+        self.number_of_elevators = number_of_elevators
+
+    def run_elevator(self, number_of_elevator, floor_change):
+
+
+
+a = Building(0, 10, 1)
+h = Elevator(0, 10, 0)
+
+sys.exit(0)
+
 # 10.1
 
 
@@ -40,7 +80,7 @@ print(vars(h))
 h.go_to_floor(0)
 print(vars(h))
 
-sys.exit(0)
+
 
 
 # 9.4
