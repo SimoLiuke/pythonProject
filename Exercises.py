@@ -38,7 +38,7 @@ class Building:
         self.number_of_elevators = number_of_elevators
 
     def run_elevator(self, number_of_elevator, floor_change):
-
+        print(1)
 
 
 a = Building(0, 10, 1)
