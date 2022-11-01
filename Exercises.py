@@ -3,12 +3,15 @@ import _mysql_connector
 import random
 import sys
 
-# 10.2
+# 10.4
 
+
+
+# 10.2 + 10.3
 
 class Elevator:
 
-    def __init__(self, bottom_floor, top_floor, current_floor):
+    def __init__(self, bottom_floor, top_floor, current_floor=0):
         self.bottom_floor = bottom_floor
         self.top_floor = top_floor
         self.current_floor = current_floor
@@ -24,25 +27,40 @@ class Elevator:
     def go_to_floor(self, floor_change):
         if self.current_floor < floor_change:
             while self.current_floor != floor_change:
-                Elevator.floor_up(h)
+                self.floor_up()
+                print("You are at floor", self.current_floor)
         elif self.current_floor > floor_change:
             while self.current_floor != floor_change:
-                Elevator.floor_down(h)
+                self.floor_down()
+                print("You are at floor", self.current_floor)
 
 
 class Building:
 
-    def __init__(self, bottom_floor, top_floor, number_of_elevators):
-        h.top_floor = top_floor
-        h.bottom_floor = bottom_floor
-        self.number_of_elevators = number_of_elevators
+    def __init__(self, bottom_floor, top_floor, elevator_count):
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+        self.elevator_count = elevator_count
+        self.elevators = []
 
-    def run_elevator(self, number_of_elevator, floor_change):
-        print(1)
+        for i in range(elevator_count):
+            self.elevators.append(Elevator(bottom_floor, top_floor))
+            print(self.elevators[i])
+
+    def run_elevator(self, elevator_number, floor_change):
+        elevator_index = elevator_number - 1
+        self.elevators[elevator_index].go_to_floor(floor_change)
+
+    def fire_alarm(self):
+        for elevator in self.elevators:
+            elevator.go_to_floor(0)
 
 
-a = Building(0, 10, 1)
-h = Elevator(0, 10, 0)
+h = Elevator(0, 10)
+h.go_to_floor(3)
+building = Building(0, 8, 3)
+building.run_elevator(1, 6)
+building.fire_alarm()
 
 sys.exit(0)
 
@@ -67,10 +85,12 @@ class Elevator:
     def go_to_floor(self, floor_change):
         if self.current_floor < floor_change:
             while self.current_floor != floor_change:
-                Elevator.floor_up(h)
+                self.floor_up()
+                print("You are at floor", self.current_floor)
         elif self.current_floor > floor_change:
             while self.current_floor != floor_change:
-                Elevator.floor_down(h)
+                self.floor_down()
+                print("You are at floor", self.current_floor)
 
 
 h = Elevator(0, 10, 0)
@@ -80,15 +100,14 @@ print(vars(h))
 h.go_to_floor(0)
 print(vars(h))
 
-
-
+sys.exit(1)
 
 # 9.4
 
 
 class Car:
 
-    def __init__(self, registration, max_speed, speed, travelled_distance):
+    def __init__(self, registration, max_speed, speed=0, travelled_distance=0):
         self.registration = registration
         self.max_speed = max_speed
         self.speed = speed
@@ -137,7 +156,6 @@ while not finished:
 
 for car in cars:
     print(vars(car))
-
 
 
 # 9.3
