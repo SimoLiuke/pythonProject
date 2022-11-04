@@ -2,6 +2,29 @@ import math
 import _mysql_connector
 import random
 import sys
+import json
+import requests
+
+# 12.2
+
+# municipality = input("Enter a municipality: \n")
+
+request = "https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid={afab5d7b968764f2a0308f0607c28fa9}&units=metric"
+response = requests.get(request).json()
+
+print(json.dumps(response, indent=2))
+
+sys.exit(0)
+
+# 12.1
+
+request = "https://api.chucknorris.io/jokes/random"
+response = requests.get(request).json()
+
+
+print("\n", response["value"])
+
+sys.exit(0)
 
 # 11.2
 
