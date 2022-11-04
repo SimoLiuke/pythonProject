@@ -3,9 +3,119 @@ import _mysql_connector
 import random
 import sys
 
+# 11.2
+
+
+class Car:
+
+    def __init__(self, registration, max_speed, speed=0, travelled_distance=0):
+        self.registration = registration
+        self.max_speed = max_speed
+        self.speed = speed
+        self.travelled_distance = travelled_distance
+
+    def drive(self, hours):
+        if hours > 0:
+            self.travelled_distance = self.travelled_distance + self.speed * hours
+
+    def accelerate(self, speed_change):
+        if self.speed + speed_change >= 0:
+            self.speed = self.speed + speed_change
+        else:
+            self.speed = 0
+
+        if self.speed + speed_change <= self.max_speed:
+            self.speed = self.speed + speed_change
+        else:
+            self.speed = self.max_speed
+
+
+class ElectricCar(Car):
+
+    def __init__(self,  battery_cap, registration, max_speed, speed=0, travelled_distance=0):
+        super().__init__(registration, max_speed, speed, travelled_distance)
+        self.battery_cap = battery_cap
+
+
+class GasolineCar(Car):
+
+    def __init__(self,  tank_vol, registration, max_speed, speed=0, travelled_distance=0):
+        super().__init__(registration, max_speed, speed, travelled_distance)
+        self.tank_vol = tank_vol
+
+
+# main
+
+cars = []
+
+cars.append(ElectricCar("52.5 kWh", "ABC-15", 180, random.randrange(50, 100), 0))
+cars.append(GasolineCar("32.3 l", "ACD-123", 165, random.randrange(50, 100), 0))
+
+
+for car in cars:
+    car.drive(3)
+
+for car in cars:        # as I randomized speed value distance values vary between executions
+    print(car.registration, ":", car.travelled_distance, "Km")
+
+sys.exit(0)
+
+# 11.1
+
+class Publication:
+
+    def __init__(self, name):
+        self.name = name
+
+    def print_info(self):
+        print(f"{self.name}")
+
+
+class Book(Publication):
+
+    def __init__(self, name, author, p_count):
+        super().__init__(name)
+        self.author = author
+        self.p_count = p_count
+
+    def print_info(self):
+        super().print_info()
+        print(f"{self.author}, {self.p_count} pages")
+
+
+class Magazine(Publication):
+
+    def __init__(self, name, chief_editor):
+        super().__init__(name)
+        self.chief_editor = chief_editor
+
+    def print_info(self):
+        super().print_info()
+        print(f"{self.chief_editor}")
+
+
+# main
+
+publications = []
+
+publications.append(Magazine("Donald Duck", "Aki Hyyppä"))
+publications.append(Book("Compartment No. 6", "Rosa Liksom", 192))
+
+for i in publications:
+    i.print_info()
+    print("")
+
+
+sys.exit(0)
+
 # 10.4
 
+class Race:
 
+    def __init__(self, name, kilometers, car_list):
+        self.name = name
+        self.travelled_distance = kilometers
+        self.car_list = car_list
 
 # 10.2 + 10.3
 
@@ -157,6 +267,7 @@ while not finished:
 for car in cars:
     print(vars(car))
 
+sys.exit(0)
 
 # 9.3
 
