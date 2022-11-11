@@ -5,6 +5,7 @@ import sys
 import json
 import requests
 
+
 # 12.2
 
 # municipality = input("Enter a municipality: \n")
@@ -169,8 +170,8 @@ class Race:
         self.car_list = car_list
 
     def hour_passes(self):
-        for car in cars:
-            car_accelerate = randint(-10, 15)
+        for car in car_list:
+            car_accelerate = random.randrange(-10, 15)
 
             if 0 < car.speed + car_accelerate < car.max_speed:
                 car.speed += car_accelerate
@@ -207,6 +208,8 @@ while True:
     race.print_values()
     if race.race_finished():
         break
+
+sys.exit(1)
 
 
 # 10.2 + 10.3
