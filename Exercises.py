@@ -133,12 +133,81 @@ sys.exit(0)
 
 # 10.4
 
+
+class Car:
+
+    def __init__(self, registration, max_speed, speed, travelled_distance):
+        self.registration = registration
+        self.max_speed = max_speed
+        self.speed = speed
+        self.travelled_distance = travelled_distance
+
+    def accelerate(self, speed_change):
+        if self.speed == 0 and speed_change < 0:
+            self.speed = self.speed
+        elif speed_change > 0 and speed_change + self.speed <= self.max_speed:
+            self.speed = self.speed + speed_change
+        elif speed_change < 0 and self.speed + speed_change > 0:
+            self.speed = self.speed - speed_change
+        elif speed_change < 0 and self.speed + speed_change < 0:
+            self.speed = 0
+        else:
+            self.speed = self.max_speed
+
+    def drive(self, hours):
+        if hours < 0:
+            self.travelled_distance = self.travelled_distance + self.speed / hours
+        else:
+            self.travelled_distance = self.travelled_distance + self.speed * hours
+
+
 class Race:
 
     def __init__(self, name, kilometers, car_list):
         self.name = name
-        self.travelled_distance = kilometers
+        self.distance = kilometers
         self.car_list = car_list
+
+    def hour_passes(self):
+        for car in cars:
+            car_accelerate = randint(-10, 15)
+
+            if 0 < car.speed + car_accelerate < car.max_speed:
+                car.speed += car_accelerate
+                car.drive(1)
+
+            elif car.speed + car_accelerate > car.max_speed:
+                car.speed = car.max_speed
+                car.drive(1)
+        return
+
+    def print_values(self):
+        for car in self.car_list:
+            print(f"Name: {car.registration}, Max Speed: {car.max_speed}, Current Speed: {car.speed}, Travelled Distance: {car.travelled_distance}")
+        return
+
+    def race_finished(self):
+        for car in self.car_list:
+            if car.travelled_distance >= self.distance:
+                return True
+        return
+
+# Main
+
+car_list=[]
+
+BMW = Car("BMW", 200, 0, 0)
+Ferrari = Car("Ferrari", 200, 0, 0)
+car_list.append(BMW), car_list.append(Ferrari)
+
+race = Race("Grand Demolition Derby", 8000, car_list)
+
+while True:
+    race.hour_passes()
+    race.print_values()
+    if race.race_finished():
+        break
+
 
 # 10.2 + 10.3
 
