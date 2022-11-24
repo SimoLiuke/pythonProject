@@ -4,28 +4,78 @@ import random
 import sys
 import json
 import requests
+from flask import Flask, request
+
+# 13.2 cant make work due to mariaDB issues     :(
 
 
-# 12.2
 
-# municipality = input("Enter a municipality: \n")
+sys.exit(1)
 
-request = "https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid={afab5d7b968764f2a0308f0607c28fa9}&units=metric"
-response = requests.get(request).json()
+# 13.1 (had trouble with this one)
 
-print(json.dumps(response, indent=2))
+app = Flask(__name__)
+
+
+@app.route('/sum')
+def prime_number():
+    args = request.args
+    number = float(args.get("number1"))
+
+    if number > 1:
+        tf = "false"
+        for i in range(2, int(num / 2) + 1):
+            if (num % i) == 0:
+                break
+        else:
+            tf = "true"
+    else:
+        tf = "false"
+
+    response = {
+        "number" : number,
+        "isPrime" : tf,
+    }
+
+    return response
+
+if __name__ == '__main__':
+    app.run(use_reloader=True, host='127.0.0.1', port=5000)
 
 sys.exit(0)
+
+
+# 12.2 (couldn't make work, even after seeing example from other students)(current code is highly based on code from that example)
+
+def get_city_name():
+    city = input("Enter city name: \n")
+    return city
+
+
+def get_temp(city):
+    request = "https://api.openweathermap.org/data/2.5/weather?q=" + city + f"APPID=afab5d7b968764f2a0308f0607c28fa9&units=metric"
+    response = requests.get(request).json()
+    temp = response['main']['temp']
+    return temp
+
+
+city = get_city_name()
+celsius = get_temp(city)
+print(f"The temperature in {city} is {round(celsius, 1)}")
+
+sys.exit(0)
+
+print(json.dumps(response, indent=2))
 
 # 12.1
 
 request = "https://api.chucknorris.io/jokes/random"
 response = requests.get(request).json()
 
-
 print("\n", response["value"])
 
 sys.exit(0)
+
 
 # 11.2
 
@@ -56,14 +106,14 @@ class Car:
 
 class ElectricCar(Car):
 
-    def __init__(self,  battery_cap, registration, max_speed, speed=0, travelled_distance=0):
+    def __init__(self, battery_cap, registration, max_speed, speed=0, travelled_distance=0):
         super().__init__(registration, max_speed, speed, travelled_distance)
         self.battery_cap = battery_cap
 
 
 class GasolineCar(Car):
 
-    def __init__(self,  tank_vol, registration, max_speed, speed=0, travelled_distance=0):
+    def __init__(self, tank_vol, registration, max_speed, speed=0, travelled_distance=0):
         super().__init__(registration, max_speed, speed, travelled_distance)
         self.tank_vol = tank_vol
 
@@ -75,14 +125,14 @@ cars = []
 cars.append(ElectricCar("52.5 kWh", "ABC-15", 180, random.randrange(50, 100), 0))
 cars.append(GasolineCar("32.3 l", "ACD-123", 165, random.randrange(50, 100), 0))
 
-
 for car in cars:
     car.drive(3)
 
-for car in cars:        # as I randomized speed value distance values vary between executions
+for car in cars:  # as I randomized speed value distance values vary between executions
     print(car.registration, ":", car.travelled_distance, "Km")
 
 sys.exit(0)
+
 
 # 11.1
 
@@ -129,8 +179,8 @@ for i in publications:
     i.print_info()
     print("")
 
-
 sys.exit(0)
+
 
 # 10.4
 
@@ -184,7 +234,8 @@ class Race:
 
     def print_values(self):
         for car in self.car_list:
-            print(f"Name: {car.registration}, Max Speed: {car.max_speed}, Current Speed: {car.speed}, Travelled Distance: {car.travelled_distance}")
+            print(
+                f"Name: {car.registration}, Max Speed: {car.max_speed}, Current Speed: {car.speed}, Travelled Distance: {car.travelled_distance}")
         return
 
     def race_finished(self):
@@ -193,9 +244,10 @@ class Race:
                 return True
         return
 
+
 # Main
 
-car_list=[]
+car_list = []
 
 BMW = Car("BMW", 200, 0, 0)
 Ferrari = Car("Ferrari", 200, 0, 0)
@@ -269,6 +321,7 @@ building.fire_alarm()
 
 sys.exit(0)
 
+
 # 10.1
 
 
@@ -306,6 +359,7 @@ h.go_to_floor(0)
 print(vars(h))
 
 sys.exit(1)
+
 
 # 9.4
 
@@ -345,24 +399,25 @@ for i in range(10):
     cars.append(car)
 
 distance = []
-loops = 0       # for testing
+loops = 0  # for testing
 
 while not finished:
     for car in cars:
         car.accelerate(random.randrange(-10, 15))
         car.drive(1)
-        print("Hours Driven", loops)    # for testing
+        print("Hours Driven", loops)  # for testing
 
         if car.travelled_distance >= max_distance:
             finished = True
             print("")
         else:
-            loops = loops + 1   # for testing
+            loops = loops + 1  # for testing
 
 for car in cars:
     print(vars(car))
 
 sys.exit(0)
+
 
 # 9.3
 
@@ -406,7 +461,8 @@ BMW.drive(2.5)
 print(BMW.speed, BMW.travelled_distance)
 BMW.accelerate(-200)
 print(BMW.speed, BMW.travelled_distance)
-print(f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance} km.")
+print(
+    f"The BMW's registration is {BMW.registration}, it's max speed is {BMW.max_speed} km/h, it's currently travelling at {BMW.speed} km/h, and it has travelled {BMW.travelled_distance} km.")
 
 
 # 9.2
@@ -442,7 +498,8 @@ car.accelerate(50)
 print(car.speed)
 car.accelerate(-200)
 print(car.speed)
-print(f"The car's registration is {car.registration}, it's max speed is {car.max_speed} km/h, it's currently travelling at {car.speed} km/h, and it has travelled {car.travelled_distance}.")
+print(
+    f"The car's registration is {car.registration}, it's max speed is {car.max_speed} km/h, it's currently travelling at {car.speed} km/h, and it has travelled {car.travelled_distance}.")
 
 
 # 9.1
@@ -459,7 +516,8 @@ car = Car(registration="ABC-123", max_speed="142 km/h")
 car.current_speed = "80 km/h"
 car.travelled_distance = "0 km"
 
-print(f"The car's registration is {car.registration}, it's max speed is {car.max_speed} km/h, it's currently travelling at {car.current_speed}, and it has travelled {car.travelled_distance}.")
+print(
+    f"The car's registration is {car.registration}, it's max speed is {car.max_speed} km/h, it's currently travelling at {car.current_speed}, and it has travelled {car.travelled_distance}.")
 
 # 7.2
 
@@ -505,6 +563,7 @@ else:
 
 print("Season is", season)
 
+
 # 6.6
 
 
@@ -520,7 +579,6 @@ diameter = float(input("Give Diameter of the first pizza: \n"))
 price = float(input("Give the price of the first  pizza: \n"))
 diameter2 = float(input("Give Diameter of the second pizza: \n"))
 price2 = float(input("Give the price of the second pizza: \n"))
-
 
 # Calculating values
 value1 = calculate(diameter, price)
@@ -604,7 +662,7 @@ import random
 from random import randint
 
 
-def roll2(sides):   # Strange bug, won't give max value for range without +1, works fine with it
+def roll2(sides):  # Strange bug, won't give max value for range without +1, works fine with it
     dice = random.randrange(1, sides + 1)
     print(dice)
     return dice
@@ -616,6 +674,7 @@ dice = roll2(sides)
 
 while dice != sides:
     dice = roll2(sides)
+
 
 # 6.1
 
@@ -863,7 +922,6 @@ avg_1 = (num1 + num2 + num3) / 3
 print("The sum of the numbers is: ", sum_1)
 print("The product of the numbers is: ", prod_1)
 print("The average of the numbers is: ", avg_1)
-
 
 # 2.3
 
